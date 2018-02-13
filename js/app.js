@@ -195,10 +195,11 @@ $('button[type="submit"]').click(function(e) {
     e.preventDefault();
   }
   if(credit === 'credit card'){
+    $('#error').remove();
     if($('#cc-num').val().length < 13 || $('#cc-num').val().length > 16) {
       e.preventDefault();
       $('#cc-num').addClass('fail');
-      $('#submit').prepend('<br><p class="error">Check yo cc numba foo, must be between 13 & 16 digits</p>');
+      $('#submit').prepend('<span id="error"><br><p class="error">Check yo cc numba foo, must be between 13 & 16 digits</p></span>');
     } else {
       $('#cc-num').removeClass('fail');
     }
