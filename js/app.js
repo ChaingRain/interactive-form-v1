@@ -163,11 +163,14 @@ paymentSelect.change(function() {
   }
 })
 
+$('.number').bind('keydown',function(e){
+    if (e.which < 48 || e.which > 57)
+        return false;
+    return true;
+})
+
 //Form submit
-
-
  $('#mail').keyup(function() {
-
   if(isValidEmailAddress($('#mail').val()) === false){
   $('label[for="mail"]').addClass('fail-label');
   }else {
@@ -195,11 +198,10 @@ $('button[type="submit"]').click(function(e) {
     e.preventDefault();
   }
   if(credit === 'credit card'){
-    $('#error').remove();
     if($('#cc-num').val().length < 13 || $('#cc-num').val().length > 16) {
       e.preventDefault();
       $('#cc-num').addClass('fail');
-      $('#submit').prepend('<span id="error"><br><p class="error">Check yo cc numba foo, must be between 13 & 16 digits</p></span>');
+      $('#submit').prepend('<br><p class="error">Check yo cc numba foo, must be between 13 & 16 digits</p>');
     } else {
       $('#cc-num').removeClass('fail');
     }
