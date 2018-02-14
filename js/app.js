@@ -163,6 +163,7 @@ paymentSelect.change(function() {
   }
 })
 
+//needed help with this function. I had to search google.
 $('.number').bind('keydown',function(e){
     if (e.which < 48 || e.which > 57)
         return false;
